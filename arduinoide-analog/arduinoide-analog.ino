@@ -1,9 +1,17 @@
-void setup() {
-  pinMode(13,)
+byte LED_Pin = 12;
+byte bytEmpfang = 0; 
+void setup() 
+{
+  Serial.begin(9600);
+  pinMode(LED_Pin, OUTPUT);
 
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
+void loop() 
+{
+  if(Serial.available()){
+    bytEmpfang = Serial.read();
+  }
+  analogWrite(LED_Pin, bytEmpfang);
 
 }

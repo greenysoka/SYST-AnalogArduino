@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lightninginput = new System.Windows.Forms.NumericUpDown();
             this.submitbutton = new System.Windows.Forms.Button();
+            this.serialPortArduino = new System.IO.Ports.SerialPort(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.lightninginput)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +51,7 @@
             this.lightninginput.Name = "lightninginput";
             this.lightninginput.Size = new System.Drawing.Size(120, 22);
             this.lightninginput.TabIndex = 0;
+            this.lightninginput.ValueChanged += new System.EventHandler(this.lightninginput_ValueChanged);
             // 
             // submitbutton
             // 
@@ -60,6 +63,10 @@
             this.submitbutton.Text = "Helligkeit festlegen";
             this.submitbutton.UseVisualStyleBackColor = false;
             this.submitbutton.Click += new System.EventHandler(this.submitbutton_Click);
+            // 
+            // serialPortArduino
+            // 
+            this.serialPortArduino.PortName = "COM3";
             // 
             // AnalogWriter
             // 
@@ -79,6 +86,7 @@
 
         private System.Windows.Forms.NumericUpDown lightninginput;
         private System.Windows.Forms.Button submitbutton;
+        private System.IO.Ports.SerialPort serialPortArduino;
     }
 }
 
